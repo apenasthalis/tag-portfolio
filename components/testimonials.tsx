@@ -8,18 +8,18 @@ const testimonials = [
     id: 1,
     name: "Maria Silva",
     role: "CEO",
-    company: "TechStart",
+    company: "Smart Devs",
     content:
-      "O trabalho da Tag Programming superou todas as expectativas. Nosso site ficou incrível e as conversões aumentaram em 150% no primeiro mês. Profissionalismo e qualidade em cada detalhe.",
+      "Trabalho excepcional! O TAG entregou nosso projeto antes do prazo e superou todas as expectativas. A qualidade do código e atenção aos detalhes são impressionantes.",
     rating: 5,
   },
   {
     id: 2,
-    name: "João Santos",
-    role: "Diretor de Marketing",
-    company: "Nexus Digital",
+    name: "Rodrigo Almeida",
+    role: "Dono da hambúrgueria",
+    company: "rodrigo burguer",
     content:
-      "Contratei para desenvolver nossa plataforma de e-commerce e o resultado foi excepcional. Comunicação clara, entregas no prazo e código de altíssima qualidade. Recomendo fortemente!",
+      "Profissional extremamente competente e comunicativo. Transformou nossa visão em uma plataforma robusta e escalável. Recomendo sem hesitação!",
     rating: 5,
   },
   {
@@ -33,11 +33,11 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Carlos Mendes",
-    role: "CTO",
-    company: "InnovateTech",
+    name: "Ricardo Santos",
+    role: "CEO",
+    company: "LevelCars",
     content:
-      "Excelente desenvolvedor! Entregou um sistema complexo de agendamentos que funciona perfeitamente. Sempre disponível para ajustes e melhorias. Profissional nota 10.",
+      "Experiência técnica de alto nível combinada com excelente comunicação. O sistema desenvolvido está rodando perfeitamente há meses sem nenhum problema.",
     rating: 5,
   },
   {
@@ -76,41 +76,41 @@ export function Testimonials() {
   }
 
   return (
-    <section id="recomendacoes" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="recomendacoes" className="relative py-20 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 font-bold text-foreground text-3xl md:text-4xl">
             O que <span className="text-primary">Dizem</span> os Clientes
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-muted-foreground">
             Feedback real de clientes que confiaram na Tag Programming para seus projetos.
           </p>
         </div>
 
         {/* Main Testimonial */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-card border border-border rounded-3xl p-8 md:p-12 relative">
-            <Quote className="absolute top-6 left-6 w-12 h-12 text-primary/20" />
+        <div className="mx-auto max-w-4xl">
+          <div className="relative bg-card p-8 md:p-12 border border-border rounded-3xl">
+            <Quote className="top-6 left-6 absolute w-12 h-12 text-primary/20" />
 
-            <div className="relative z-10">
+            <div className="z-10 relative">
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  <Star key={i} className="fill-primary w-5 h-5 text-primary" />
                 ))}
               </div>
 
               {/* Content */}
-              <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-8">
+              <blockquote className="mb-8 text-foreground text-lg md:text-xl leading-relaxed">
                 "{testimonials[currentIndex].content}"
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="text-xl font-bold text-primary">
+                <div className="flex justify-center items-center bg-primary/20 rounded-full w-14 h-14">
+                  <span className="font-bold text-primary text-xl">
                     {testimonials[currentIndex].name.charAt(0)}
                   </span>
                 </div>
@@ -118,7 +118,7 @@ export function Testimonials() {
                   <p className="font-semibold text-foreground">
                     {testimonials[currentIndex].name}
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-muted-foreground text-sm">
                     {testimonials[currentIndex].role} @ {testimonials[currentIndex].company}
                   </p>
                 </div>
@@ -127,11 +127,11 @@ export function Testimonials() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex justify-center items-center gap-4 mt-8">
             <button
               type="button"
               onClick={goToPrevious}
-              className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+              className="flex justify-center items-center bg-card border border-border hover:border-primary rounded-full w-10 h-10 hover:text-primary transition-colors"
               aria-label="Anterior"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -160,7 +160,7 @@ export function Testimonials() {
             <button
               type="button"
               onClick={goToNext}
-              className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+              className="flex justify-center items-center bg-card border border-border hover:border-primary rounded-full w-10 h-10 hover:text-primary transition-colors"
               aria-label="Próximo"
             >
               <ChevronRight className="w-5 h-5" />
@@ -169,25 +169,25 @@ export function Testimonials() {
         </div>
 
         {/* Additional Testimonials Preview */}
-        <div className="hidden lg:grid grid-cols-3 gap-6 mt-16">
+        <div className="hidden gap-6 lg:grid grid-cols-3 mt-16">
           {testimonials
             .filter((_, i) => i !== currentIndex)
             .slice(0, 3)
             .map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-card/50 border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors"
+                className="bg-card/50 p-6 border border-border hover:border-primary/30 rounded-2xl transition-colors"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    <Star key={i} className="fill-primary w-4 h-4 text-primary" />
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
+                <p className="mb-4 text-muted-foreground text-sm line-clamp-3">
                   "{testimonial.content}"
                 </p>
-                <p className="text-sm font-medium text-foreground">{testimonial.name}</p>
-                <p className="text-xs text-muted-foreground">{testimonial.company}</p>
+                <p className="font-medium text-foreground text-sm">{testimonial.name}</p>
+                <p className="text-muted-foreground text-xs">{testimonial.company}</p>
               </div>
             ))}
         </div>

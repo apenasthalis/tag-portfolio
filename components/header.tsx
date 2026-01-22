@@ -32,13 +32,12 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-primary font-bold text-xl">{"<"}</span>
-            <span className="font-bold text-lg text-foreground">tag</span>
-            <span className="text-primary font-bold text-xl">{"/>"}</span>
-            <span className="font-semibold text-foreground hidden sm:inline">programming</span>
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="flex justify-between items-center h-16 md:h-20">
+          <Link href="/" className="flex items-center gap-1">
+            <span className="font-bold text-primary text-xl">{"<"}</span>
+            <span className="font-bold text-foreground text-lg">TAG</span>
+            <span className="font-bold text-primary text-xl">{" />"}</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -46,7 +45,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
+                className="font-medium text-muted-foreground hover:text-foreground text-sm transition-colors"
               >
                 {link.label}
               </Link>
@@ -71,13 +70,13 @@ export function Header() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border">
-          <nav className="flex flex-col px-4 py-4 gap-4">
+        <div className="md:hidden bg-background/95 backdrop-blur-lg border-border border-b">
+          <nav className="flex flex-col gap-4 px-4 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                className="py-2 text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}

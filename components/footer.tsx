@@ -5,9 +5,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: <Github className="w-5 h-5" />, href: "#", label: "GitHub" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
+    { icon: <Github className="w-5 h-5" />, href: "https://github.com/apenasthalis", label: "GitHub" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/thalis-gabriel", label: "LinkedIn" },
+    { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/tagprogramming_/", label: "Instagram" },
     { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" },
   ]
 
@@ -19,15 +19,14 @@ export function Footer() {
   ]
 
   return (
-    <footer className="border-t border-border py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
+    <footer className="py-12 border-border border-t">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="items-center gap-8 grid md:grid-cols-3">
           {/* Logo */}
-          <div className="flex items-center justify-center md:justify-start gap-2">
-            <span className="text-primary font-bold text-xl">{"<"}</span>
-            <span className="font-bold text-lg text-foreground">tag</span>
-            <span className="text-primary font-bold text-xl">{"/>"}</span>
-            <span className="font-semibold text-foreground">programming</span>
+          <div className="flex justify-center md:justify-start items-center gap-2">
+            <span className="font-bold text-primary text-xl">{"<"}</span>
+            <span className="font-bold text-foreground text-lg">TAG</span>
+            <span className="font-bold text-primary text-xl">{" />"}</span>
           </div>
 
           {/* Navigation */}
@@ -36,7 +35,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
               >
                 {link.label}
               </Link>
@@ -49,8 +48,9 @@ export function Footer() {
               <a
                 key={social.label}
                 href={social.href}
-                className="w-10 h-10 rounded-lg border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+                className="flex justify-center items-center bg-card border border-border hover:border-primary rounded-lg w-10 h-10 text-muted-foreground hover:text-primary transition-colors"
                 aria-label={social.label}
+                target="_blank"
               >
                 {social.icon}
               </a>
@@ -59,8 +59,8 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-border text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-8 pt-8 border-border border-t text-center">
+          <p className="text-muted-foreground text-sm">
             © {currentYear} Tag Programming. Todos os direitos reservados.
           </p>
         </div>

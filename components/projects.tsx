@@ -1,56 +1,66 @@
 "use client"
 
 import { useState } from "react"
-import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { ExternalLink } from "lucide-react"
+import { Github } from "lucide-react"
 
 const projects = [
   {
     id: 1,
-    title: "E-commerce Premium",
-    description: "Plataforma de vendas online com checkout otimizado, integração de pagamentos e painel administrativo completo.",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind CSS"],
-    category: "E-commerce",
-    image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    title: "Cardápio Digital - Rodrigo Burguer",
+    description: "Aplicativo web para divulgação do cardápio digital de um restaurante, endereço para pedidos online e informações de contato da empresa rodrigo burguer.",
+    tags: ["Next.js", "TypeScript", "TailwindCss"],
+    category: "Landing Page",
+    image: "/images/rodrigo-burguer.png",
+    link: "https://rodrigo-burger-app.vercel.app/",
   },
   {
     id: 2,
-    title: "Dashboard Analytics",
-    description: "Sistema de análise de dados em tempo real com gráficos interativos e relatórios personalizados.",
-    tags: ["React", "TypeScript", "Chart.js", "Node.js"],
-    category: "SaaS",
-    image: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    title: "Sistema de Gestão para Oficina Mecânica",
+    description:
+      "Sistema de gestão para oficina mecânica com controle de serviços, agendamentos, endereço para atendimentos e cultura da empresa Level Cars.",
+    tags: ["Next.js", "TypeScript", "TailwindCss"],
+    category: "Landing Page",
+    image: "/images/level-cars.png",
+    link: "https://levelcars-mechanic.vercel.app/",
   },
   {
     id: 3,
-    title: "App de Delivery",
-    description: "Aplicação mobile-first para restaurantes com rastreamento de pedidos e sistema de avaliações.",
-    tags: ["React Native", "Firebase", "Maps API", "Redux"],
-    category: "Mobile",
-    image: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+    title: "Construtor Visual de Workflows (Fluxos)",
+    description: "Landing page para um produto, destacando suas funcionalidades, benefícios e planos de assinatura.",
+    tags: ["Next.js", "TypeScript", "TailwindCss"],
+    category: "Landing Page",
+    image: "/images/workflow.png",
+    link: "https://visual-workflow-builder-puce.vercel.app/",
   },
   {
     id: 4,
-    title: "Landing Page Institucional",
-    description: "Site institucional de alta conversão com animações fluidas e otimização SEO avançada.",
-    tags: ["Next.js", "Framer Motion", "SEO", "Analytics"],
+    title: "Portfólio Profissional de Fotografia",
+    description: "Portfólio online para exibir trabalhos fotográficos, serviços oferecidos e informações de contato.",
+    tags: ["Next.js", "TypeScript", "TailwindCss"],
     category: "Landing Page",
-    image: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+    image: "/images/fotografo.png",
+    link: "https://v0-thalis-gabriel-portfolio-a4.vercel.app/",
   },
   {
     id: 5,
-    title: "Sistema de Agendamentos",
-    description: "Plataforma completa para gestão de agendamentos com notificações automáticas e calendário integrado.",
-    tags: ["Vue.js", "Supabase", "SendGrid", "Vercel"],
-    category: "SaaS",
-    image: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+    title: "Portfólio Profissional de Desenvolvedor",
+    description: "Portfólio online para exibir projetos, habilidades e experiências profissionais de um desenvolvedor.",
+    tags: ["Next.js", "TypeScript", "TailwindCss"],
+    category: "Landing Page",
+    image: "/images/portfolio-dev.png",
+    link: "https://portfolio-thalisgabriel.vercel.app/",
   },
   {
     id: 6,
-    title: "Portal de Notícias",
-    description: "CMS headless com sistema de publicação, categorias e busca avançada por conteúdo.",
-    tags: ["Next.js", "Sanity", "Algolia", "Vercel"],
-    category: "Blog/CMS",
-    image: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
+    title: "Trainer App - Plataforma de Treinamento Físico",
+    description: "Aplicativo web para gerenciamento de treinos, acompanhamento de progresso.",
+    tags: ["Next.js", "TypeScript", "TailwindCss"],
+    category: "SaaS",
+    image: "/images/trainer-app.png",
+    link: "https://trainer-app-eight.vercel.app/login",
   },
 ]
 
@@ -66,12 +76,12 @@ export function Projects() {
 
   return (
     <section id="projetos" className="py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 font-bold text-foreground text-3xl md:text-4xl">
             Projetos <span className="text-primary">Realizados</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-muted-foreground">
             Uma seleção dos melhores projetos desenvolvidos para clientes de diversos segmentos.
           </p>
         </div>
@@ -95,56 +105,52 @@ export function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="gap-6 grid md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project) => (
-            <article
+            <Link
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               key={project.id}
-              className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300"
+              className="group block bg-card border border-border hover:border-primary/50 rounded-2xl overflow-hidden transition-all duration-300"
             >
               {/* Project Image */}
-              <div
-                className="h-48 relative overflow-hidden"
-                style={{ background: project.image }}
-              >
-                <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <button
-                    type="button"
-                    className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="Ver projeto"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                  </button>
-                  <button
-                    type="button"
-                    className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="Ver código"
-                  >
-                    <Github className="w-5 h-5" />
-                  </button>
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={project.image || "/placeholder.svg"}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 flex justify-center items-center bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="flex items-center gap-2 bg-primary/90 px-4 py-2 rounded-full font-medium text-foreground">
+                    <ExternalLink className="w-4 h-4" />
+                    Ver Projeto
+                  </span>
                 </div>
               </div>
 
               {/* Project Info */}
               <div className="p-6">
-                <span className="text-xs font-medium text-primary">{project.category}</span>
-                <h3 className="text-xl font-semibold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors">
+                <span className="font-medium text-primary text-xs">{project.category}</span>
+                <h3 className="mt-2 mb-3 font-semibold text-foreground group-hover:text-primary text-xl transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                <p className="mb-4 text-muted-foreground text-sm line-clamp-2">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground"
+                      className="bg-secondary px-2 py-1 rounded-md text-secondary-foreground text-xs"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
